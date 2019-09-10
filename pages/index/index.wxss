@@ -1,0 +1,63 @@
+page {
+  background-color: #F0F0F0;
+}
+
+/* 轮播图样式 */
+.swiper-wrapper {
+  height: 340rpx;
+}
+
+.swiper-wrapper .swiper-item-wrapper {
+  height: 100%;
+}
+
+.swiper-wrapper .swiper-item-wrapper image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 分类样式 */
+.category {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category .item {
+  width: 250rpx;
+  height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 2rpx solid #F0F0F0;
+  border-bottom: 2rpx solid #F0F7F0;
+  box-sizing: border-box;
+}
+
+.category .clearborder {
+  border-right: none;
+}
+
+.category .item image {
+  width: 80rpx;
+}
+
+.category .item text {
+  font-size: 28rpx;
+  color: #646464;
+  margin-top: 20rpx;
+}
+
+/* 底部样式 */
+.links {
+  background-color: #fff;
+  padding: 20rpx;
+  margin: 16rpx 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.links image {
+  width: 320rpx;
+}
