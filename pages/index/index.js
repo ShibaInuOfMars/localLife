@@ -1,4 +1,7 @@
-// pages/index/index.js
+// 引入ajax
+import wxAjax from './../../utils/ajax.js';
+
+
 Page({
 
   /**
@@ -10,6 +13,7 @@ Page({
   },
 
   onShow() {
+    // console.log(wxAjax);
     this.getSwiperList();
 
     this.getCategoryList();
@@ -17,30 +21,50 @@ Page({
 
   // 发送请求获取轮播图数据
   getSwiperList() {
-    wx.request({
-      url: 'https://locally.uieee.com/slides',
-      success: (res) => {
-        // console.log(res);
-        if (res.statusCode === 200) {
-          this.data.swiperList = res.data;
+    // wx.request({
+    //   url: 'https://locally.uieee.com/slides',
+    //   success: (res) => {
+    //     // console.log(res);
+    //     if (res.statusCode === 200) {
+    //       this.data.swiperList = res.data;
 
-          this.setData(this.data);
-        }
+    //       this.setData(this.data);
+    //     }
+    //   }
+    // });
+
+    wxAjax({
+      url: '/slides'
+    }).then((res) => {
+      if (res.statusCode === 200) {
+        this.data.swiperList = res.data;
+
+        this.setData(this.data);
       }
     });
   },
 
   // 发送请求获取分类数据
   getCategoryList() {
-    wx.request({
-      url: 'https://locally.uieee.com/categories',
-      success: (res) => {
-        // console.log(res);
-        if (res.statusCode === 200) {
-          this.data.categoryList = res.data;
+    // wx.request({
+    //   url: 'https://locally.uieee.com/categories',
+    //   success: (res) => {
+    //     // console.log(res);
+    //     if (res.statusCode === 200) {
+    //       this.data.categoryList = res.data;
 
-          this.setData(this.data);
-        }
+    //       this.setData(this.data);
+    //     }
+    //   }
+    // });
+
+    wxAjax({
+      url: '/categories'
+    }).then((res) => {
+      if (res.statusCode === 200) {
+        this.data.categoryList = res.data;
+
+        this.setData(this.data);
       }
     });
   }
