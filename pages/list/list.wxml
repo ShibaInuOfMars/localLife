@@ -1,0 +1,19 @@
+<view class="search">
+  <view class="input">
+    <icon size="18" type="search"></icon>
+    <text>搜索</text>
+  </view>
+</view>
+
+<block wx:for="{{shopList}}" wx:key="id">
+  <view class="list-wrapper">
+    <image src="{{item.images[0]}}"></image>
+    <view class="content">
+      <text class="shop-name">{{item.name}}</text>
+      <text>电话：{{item.phone}}</text>
+      <text>地址：{{item.address}}</text>
+      <text>营业时间：{{item.businessHours}}</text>
+      <text class="score">{{item.score}}</text>
+    </view>
+  </view>
+</block>

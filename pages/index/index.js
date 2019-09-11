@@ -78,5 +78,14 @@ Page({
       this.data.categoryList = res.data;
       this.setData(this.data);
     }
+  },
+
+  // 跳转到列表页，将分类id传过去
+  jumpToList(e) {
+    let cid = e.currentTarget.dataset.cid;
+    let cname = e.currentTarget.dataset.cname;
+    wx.navigateTo({
+      url: `/pages/list/list?cid=${cid}&cname=${cname}`
+    });
   }
 })
