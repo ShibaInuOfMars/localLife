@@ -33,9 +33,7 @@ Page({
     //   }
     // });
 
-    wxAjax({
-      url: '/slides'
-    }).then((res) => {
+    wxAjax('/slides').then((res) => {
       if (res.statusCode === 200) {
         this.data.swiperList = res.data;
 
@@ -58,9 +56,7 @@ Page({
     //   }
     // });
 
-    wxAjax({
-      url: '/categories'
-    }).then((res) => {
+    wxAjax('/categories').then((res) => {
       if (res.statusCode === 200) {
         this.data.categoryList = res.data;
 

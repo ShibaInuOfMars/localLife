@@ -4,7 +4,15 @@
 // 定义基础路径
 const BASE_URL = 'https://locally.uieee.com';
 
-export default function wxAjax(options = {}) {
+export default function wxAjax(options) {
+  // 判断参数的类型
+  if (typeof options === 'string') {
+    let url = options;
+    options = {
+      url
+    };
+  }
+
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${BASE_URL}${options.url}`,
