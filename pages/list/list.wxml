@@ -17,3 +17,8 @@
     </view>
   </view>
 </block>
+
+<view class="tips">
+  <text hidden="{{!hasMore}}">加载中，请稍后...</text>
+  <text hidden="{{hasMore}}">已经到底啦~</text>
+</view>
