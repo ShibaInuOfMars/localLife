@@ -17,16 +17,19 @@ Page({
       this.data.cid = query.cid;
       this.data.cname = query.cname;
       this.setData(this.data);
-
-      // 修改导航提示文字
-      wx.setNavigationBarTitle({
-        title: this.data.cname,
-      });
     } else {
       wx.navigateTo({
         url: '/pages/index/index'
       });
     }
+  },
+
+  // 页面初次渲染完成时触发
+  onReady() {
+    // 修改导航提示文字
+    wx.setNavigationBarTitle({
+      title: this.data.cname,
+    });
   },
 
   onShow() {
