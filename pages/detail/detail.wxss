@@ -1,1 +1,95 @@
-/* pages/detail/detail.wxss */
+page {
+  background-color: #f0f0f0;
+}
+
+/* 轮播图样式 */
+.swiper-wrapper {
+  height: 500rpx;
+}
+
+.swiper-wrapper .swiper-item-wrapper {
+  height: 100%;
+}
+
+.swiper-wrapper .swiper-item-wrapper image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 基本信息 */
+.info {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  color: #646464;
+  padding: 40rpx 40rpx 20rpx 20rpx;
+  background-color: #fff;
+}
+
+.info .name {
+  color: #223344;
+  font-size: 36rpx;
+}
+
+.info .score {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  background-color: #EE523D;
+  color: #fff;
+  width: 78rpx;
+  text-align: center;
+  padding: 4rpx 0;
+  border-radius: 25rpx;
+}
+
+/* 服务 */
+.service {
+  padding-left: 20rpx;
+  font-size: 24rpx;
+  color: #646464;
+  background-color: #fff;
+}
+
+/* 评论 */
+.comment-list {
+  background-color: #fff;
+  margin-top: 30rpx;
+}
+
+.comment-list .comment {
+  border-bottom: 2rpx solid #EEEEEE;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-list .comment .author {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.comment-list .comment .author .date{
+  font-size: 20rpx;
+  color: #646464;
+  align-self: flex-end;
+}
+
+.comment-list .comment .author .rating {
+  position: absolute;
+  font-size: 20rpx;
+  color: #EE523D;
+  right: 0;
+  top: -8rpx;
+}
+
+.comment-list .comment .content {
+  color: #646464;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.comment-list .comment .thumbnail {
+  display: flex;
+}

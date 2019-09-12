@@ -1,2 +1,39 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<!-- 轮播图 -->
+<swiper class="swiper-wrapper" indicator-dots indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#EE523D" autoplay interval="3000" circular>
+  <block wx:for="{{info.images}}" wx:key="*this">
+    <swiper-item class="swiper-item-wrapper">
+      <image mode="aspectFill" src="{{item}}"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 基本信息 -->
+<view class="info">
+  <text class="name">{{info.name}}</text>
+  <text>电话：{{info.phone}}</text>
+  <text>地址：{{info.address}}</text>
+  <text>营业时间: {{info.businessHours}}</text>
+  <text class="score">{{info.score}}</text>
+</view>
+
+<!-- 服务 -->
+<view class="service">{{info.supportService}}</view>
+
+<!-- 评论 -->
+<view class="comment-list">
+  <block wx:for="{{info.comments}}" wx:key="name">
+    <view class="comment">
+      <view class="author">
+        <text>{{item.name}}</text>
+        <text class="date">{{item.date}}</text>
+        <text class="rating">{{item.rating}}</text>
+      </view>
+      <view class="content">{{item.content}}</view>
+      <view class="thumbnail">
+        <block wx:for="{{item.images}}" wx:key="*this">
+          <image src="{{item}}"></image>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>
