@@ -31,6 +31,13 @@
       <view class="content">{{item.content}}</view>
       <view class="thumbnail">
         <block wx:for="{{item.images}}" wx:key="*this">
+          <!-- http://p0.meituan.net/w.h/shaitu/4ffbaec3f82fe3b4240aedb22fee22e5267105.jpg
+                是无法加载出图片的
+                必须将其中的w跟h换成对应的宽和高才行
+                如
+                http://p0.meituan.net/110.110/shaitu/4ffbaec3f82fe3b4240aedb22fee22e5267105.jpg
+           -->
+           <!-- 在微信小程序的{{}}中是不能出现方法的调用，但可以调用wxs提供的方法 -->
           <image src="{{tools.replace(item)}}"></image>
         </block>
       </view>
@@ -45,6 +52,7 @@
     return str.replace('w.h', '110.110');
   }
 
+  // 暴露方法
   module.exports = {
     replace: replace
   }
