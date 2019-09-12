@@ -59,7 +59,7 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/detail/detail",
+					"name": "详情",
 					"pathName": "pages/detail/detail",
 					"query": "sid=1&sname=宫廷月亮虾饼",
 					"scene": null

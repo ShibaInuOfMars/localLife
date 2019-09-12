@@ -92,4 +92,12 @@ page {
 
 .comment-list .comment .thumbnail {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.comment-list .comment .thumbnail image {
+  width: 110rpx;
+  height: 110rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
 }

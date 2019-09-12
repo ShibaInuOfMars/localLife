@@ -31,9 +31,21 @@
       <view class="content">{{item.content}}</view>
       <view class="thumbnail">
         <block wx:for="{{item.images}}" wx:key="*this">
-          <image src="{{item}}"></image>
+          <image src="{{tools.replace(item)}}"></image>
         </block>
       </view>
     </view>
   </block>
 </view>
+
+<!-- 定义方法 -->
+<wxs module="tools">
+  // 解决图片不显示的问题
+  function replace(str) {
+    return str.replace('w.h', '110.110');
+  }
+
+  module.exports = {
+    replace: replace
+  }
+</wxs>
