@@ -88,5 +88,15 @@ Page({
     this.data.currentPage = 1;
     this.data.shopList = [];
     this.getShopList();
+  },
+
+  // 点击店铺跳转到详情页
+  jumpToDetail(e) {
+    let sid = e.currentTarget.dataset.sid;
+    let sname = e.currentTarget.dataset.sname;
+
+    wx.navigateTo({
+      url: `/pages/detail/detail?sid=${sid}&sname=${sname}`,
+    });
   }
 })

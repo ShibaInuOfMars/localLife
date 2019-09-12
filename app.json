@@ -4,7 +4,8 @@
     "pages/message/message",
     "pages/profile/profile",
     "pages/contact/contact",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/detail/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#3A4862",
