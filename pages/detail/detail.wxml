@@ -1,6 +1,6 @@
 <!-- 轮播图 -->
 <swiper class="swiper-wrapper" indicator-dots indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#EE523D" autoplay interval="3000" circular>
-  <block wx:for="{{info.images}}" wx:key="*this">
+  <block wx:for="{{tools.slice(info.images)}}" wx:key="*this">
     <swiper-item class="swiper-item-wrapper">
       <image mode="aspectFill" src="{{item}}"></image>
     </swiper-item>
@@ -52,8 +52,19 @@
     return str.replace('w.h', '110.110');
   }
 
+  // 解决轮播图个数过多的问题
+  function slice(arr) {
+    // 因为数据是通过ajax异步获取的，所以执行的时候可能还没有获得到数据，所以要先判断有没有值
+    if(arr && arr.length > 6) {
+      return arr.slice(0, 6);
+    } else {
+      return arr;
+    }
+  }
+
   // 暴露方法
   module.exports = {
-    replace: replace
+    replace: replace,
+    slice: slice
   }
 </wxs>
