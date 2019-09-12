@@ -41,5 +41,21 @@ Page({
       this.data.info = res.data;
       this.setData(this.data);
     }
+  },
+
+  // 点击小图显示大图，只需调用小程序提供的方法即可
+  preview(e) {
+    let {urls, current}  = e.currentTarget.dataset;
+
+    // console.log(urls, current);
+
+    // 将url中的w.h替换
+    urls = urls.map(item => item.replace('w.h', '1000.1000'));
+    current = current.replace('w.h', '1000.1000');
+
+    wx.previewImage({
+      urls: urls,
+      current: current
+    });
   }
 })
