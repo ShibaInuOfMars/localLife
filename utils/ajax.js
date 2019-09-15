@@ -22,7 +22,7 @@ export default function wxAjax(options) {
         resolve(res);
       },
       fail: (err) => {
-        reject(ree);
+        reject(err);
       }
     });
   });
