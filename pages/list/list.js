@@ -8,11 +8,16 @@ Page({
     shopList: [], // 店铺数据
     currentPage: 1, // 当前的页数
     pageSize: 10, // 每次需要请求的条数
-    hasMore: true // 控制上拉是否还有数据
+    hasMore: true, // 控制上拉是否还有数据
+    showTips: false // 显示提示信息
   },
 
   // 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数
   onLoad(query) {
+    wx.showLoading({
+      title: '加载中'
+    });
+
     if (query.cid) {
       this.data.cid = query.cid;
       this.data.cname = query.cname;
@@ -59,6 +64,12 @@ Page({
       this.data.shopList = [...shopList, ...res.data]; // ES6
 
       this.setData(this.data);
+      wx.hideLoading({
+        complete: () => {
+          this.data.showTips = true;
+          this.setData(this.data);
+        }
+      });
     }
   },
 

@@ -18,7 +18,7 @@
   </view>
 </block>
 
-<view class="tips">
+<view class="tips" wx:if="{{showTips}}">
   <text hidden="{{!hasMore}}">加载中，请稍后...</text>
   <text hidden="{{hasMore}}">已经到底啦~</text>
 </view>

@@ -10,6 +10,10 @@ Page({
   },
 
   onLoad (query) {
+    wx.showLoading({
+      title: '加载中'
+    });
+
     // console.log(query);
     if(query.sid) {
       this.data.sid = query.sid;
@@ -40,6 +44,8 @@ Page({
     if (res.statusCode === 200) {
       this.data.info = res.data;
       this.setData(this.data);
+
+      wx.hideLoading();
     }
   },
 

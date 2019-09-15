@@ -15,11 +15,21 @@ Page({
     categoryList: [] // 分类数据
   },
 
+  onLoad() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+  },
+
   onShow() {
-    // console.log(wxAjax);
+
+    // 发送请求获取轮播图数据
     this.getSwiperList();
 
+    // 发送请求获取分类数据
     this.getCategoryList();
+
   },
 
   // 发送请求获取轮播图数据
@@ -48,6 +58,7 @@ Page({
     if (res.statusCode === 200) {
       this.data.swiperList = res.data;
       this.setData(this.data);
+      wx.hideLoading();
     }
   },
 
@@ -77,6 +88,7 @@ Page({
     if (res.statusCode === 200) {
       this.data.categoryList = res.data;
       this.setData(this.data);
+      wx.hideLoading();
     }
   },
 
