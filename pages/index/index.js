@@ -68,6 +68,7 @@ Page({
       wx.hideLoading();
       wx.showToast({
         title: '出了点问题哟~',
+        icon: 'none'
       });
     }
   },
@@ -108,6 +109,7 @@ Page({
       wx.hideLoading();
       wx.showToast({
         title: '出了点问题哟~',
+        icon: 'none'
       });
     }
   },
