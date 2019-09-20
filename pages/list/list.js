@@ -14,10 +14,6 @@ Page({
 
   // 页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数
   onLoad(query) {
-    wx.showLoading({
-      title: '加载中'
-    });
-
     if (query.cid) {
       this.data.cid = query.cid;
       this.data.cname = query.cname;
@@ -31,6 +27,9 @@ Page({
 
   // 页面初次渲染完成时触发
   onReady() {
+    // 发送ajax请求获取店铺列表
+    this.getShopList();
+    
     // 修改导航提示文字
     wx.setNavigationBarTitle({
       title: this.data.cname,
@@ -38,12 +37,16 @@ Page({
   },
 
   onShow() {
-    // 发送ajax请求获取店铺列表
-    this.getShopList();
+    
   },
 
   // 获取店铺数据
   async getShopList() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+
     let {cid, shopList, currentPage, pageSize} = this.data;
     let res = await wxAjax(`/categories/${cid}/shops?_page=${currentPage}&_limit=${pageSize}`);
     if (res.statusCode === 200) {
@@ -70,6 +73,11 @@ Page({
           this.setData(this.data);
         }
       });
+    } else {
+      wx.hideLoading();
+      wx.showToast({
+        title: '出了点问题哟~',
+      })
     }
   },
 

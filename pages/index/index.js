@@ -16,10 +16,10 @@ Page({
   },
 
   onLoad() {
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    });
+    // wx.showLoading({
+    //   title: '加载中',
+    //   mask: true
+    // });
   },
 
   onShow() {
@@ -54,11 +54,21 @@ Page({
     //   }
     // });
 
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+
     let res = await wxAjax('/slides');
     if (res.statusCode === 200) {
       this.data.swiperList = res.data;
       this.setData(this.data);
       wx.hideLoading();
+    } else {
+      wx.hideLoading();
+      wx.showToast({
+        title: '出了点问题哟~',
+      });
     }
   },
 
@@ -84,11 +94,21 @@ Page({
     //   }
     // });
 
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+
     let res = await wxAjax('/categories');
     if (res.statusCode === 200) {
       this.data.categoryList = res.data;
       this.setData(this.data);
       wx.hideLoading();
+    } else {
+      wx.hideLoading();
+      wx.showToast({
+        title: '出了点问题哟~',
+      });
     }
   },
 

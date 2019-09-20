@@ -10,9 +10,9 @@ Page({
   },
 
   onLoad (query) {
-    wx.showLoading({
-      title: '加载中'
-    });
+    // wx.showLoading({
+    //   title: '加载中'
+    // });
 
     // console.log(query);
     if(query.sid) {
@@ -40,12 +40,23 @@ Page({
 
   // 请求店铺信息
   async getInfo() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+
     let res = await wxAjax(`/shops/${this.data.sid}`);
     if (res.statusCode === 200) {
       this.data.info = res.data;
       this.setData(this.data);
 
       wx.hideLoading();
+    } else {
+      wx.hideLoading();
+
+      wx.showToast({
+        title: '出了点问题哟~'
+      });
     }
   },
 
