@@ -25,6 +25,9 @@ Page({
         url: '/pages/index/index'
       });
     }
+
+    // 请求店铺信息
+    this.getInfo();
   },
 
   onReady() {
@@ -34,8 +37,7 @@ Page({
   },
 
   onShow() {
-    // 请求店铺信息
-    this.getInfo();
+    
   },
 
   // 请求店铺信息

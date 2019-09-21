@@ -43,8 +43,7 @@ Page({
   // 获取店铺数据
   async getShopList() {
     wx.showLoading({
-      title: '加载中',
-      mask: true
+      title: '加载中'
     });
 
     let {cid, shopList, currentPage, pageSize} = this.data;
@@ -73,6 +72,7 @@ Page({
           this.setData(this.data);
         }
       });
+      wx.stopPullDownRefresh();
     } else {
       wx.hideLoading();
       wx.showToast({
